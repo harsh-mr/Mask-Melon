@@ -22,8 +22,8 @@ export const getLastBlock = (chainId: string): number => {
   if (!deploymentBlock) {
     throw Error('DeploymentBlock is not setup for chainId=\'' + chainId + '\'');
   }
-  return deploymentBlock;
-  // return parseIntSafe(localStorage.getItem(`${EASY_LINK_EVENTS_LAST_BLOCK_KEY}:${chainId}`)) || deploymentBlock;
+  // return deploymentBlock;
+  return parseIntSafe(localStorage.getItem(`${EASY_LINK_EVENTS_LAST_BLOCK_KEY}:${chainId}`)) || deploymentBlock;
 }
 
 export const saveLastBlock = (chainId: string, blockNumber: number) => {

@@ -19,8 +19,8 @@ export const CONTRACTS: {
     //   deploymentBlock: 43006828
     // },
     [PolygonMumbai]: {
-      address: '0x667f06690f12022363f4937B60C282e3F74D767d',
-      deploymentBlock: 43012976
+      address: '0x2f9FAB80D96BA8aAf4e4Aa0ab20D98c798Cd2318',
+      deploymentBlock: 43353099
     },
     [HarmonyTestnet]: {
       address: '0xF71eCB6F691ed1E150D4Fe130170A00fFEB44a45',

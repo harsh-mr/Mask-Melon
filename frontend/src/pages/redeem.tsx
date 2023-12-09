@@ -93,8 +93,8 @@ const Redeem = () => {
     });
     console.log("ev",events)
     // changedHere
-    // tree.bulkInsert(events.map(it => it.commitment));
-    tree.insert(commitment.toString());
+    tree.bulkInsert(events.map(it => it.commitment));
+    // tree.insert(commitment.toString());
 
     const merkleProof = tree.proof(commitment);
     console.log("merkle Proof",merkleProof);
