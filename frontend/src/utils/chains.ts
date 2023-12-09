@@ -3,6 +3,7 @@ export const HarmonyTestnet = '1666700000';
 export const HarmonyMainnet = '1666600000';
 export const ArbitrumTestnet = '421614';
 export const ScrollTest = '534351';
+export const Celo = '44787';
 
 export const CHAINS: {
   [key: string]: {
@@ -47,10 +48,18 @@ export const CHAINS: {
     testnet: true,
   },
   [ScrollTest]: {
-    chainName: 'Arbitrum Sepolia',
+    chainName: 'Scroll Testnet',
     rpcUrl: 'https://sepolia-rpc.scroll.io',
     blockExplorerUrl: 'https://sepolia-blockscout.scroll.io/',
     nativeCurrency: 'ETH',
+    nativeCurrencyDecimals: 18,
+    testnet: true,
+  },
+  [Celo]: {
+    chainName: 'Celo',
+    rpcUrl: 'https://alfajores-forno.celo-testnet.org',
+    blockExplorerUrl: 'https://alfajores.celoscan.io/',
+    nativeCurrency: 'CELO',
     nativeCurrencyDecimals: 18,
     testnet: true,
   },

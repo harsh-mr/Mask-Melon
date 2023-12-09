@@ -58,6 +58,10 @@ const config: HardhatUserConfig = {
     scrollTest: {
       url: "https://scroll-testnet-public.unifra.io",
       accounts: [`${TESTNET_PRIVATE_KEY}`]
+    },
+    celoTest: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: [`${TESTNET_PRIVATE_KEY}`]
     }
   },
   etherscan: {

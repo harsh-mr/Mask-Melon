@@ -89,12 +89,19 @@ const Redeem = () => {
     const commitment = context.hasher.hash(BigNumber.from(nullifier), BigNumber.from(secret)).toString();
     console.log("cComm",commitment)
 
+    // const tree = new MerkleTree(10, [], {
+    //   hashFunction: (a, b) => context.hasher.hash(BigNumber.from(a), BigNumber.from(b)).toString(),
+    //   zeroElement: "12339540769637658105100870666479336797812683353093222300453955367174479050262"
+    // });
+    
     const tree = new MerkleTree(10, [], {
       hashFunction: (a, b) => context.hasher.hash(BigNumber.from(a), BigNumber.from(b)).toString(),
       zeroElement: "12339540769637658105100870666479336797812683353093222300453955367174479050262"
     });
+
     console.log("ev",events)
     // changedHere
+    events.map(it => {console.log(it.commitment); })
     tree.bulkInsert(events.map(it => it.commitment));
     // tree.insert(commitment.toString());
 

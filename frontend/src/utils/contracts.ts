@@ -1,6 +1,6 @@
 import EasyLink from "../contracts/EasyLink.sol/EasyLink.json";
 import EasyLinkToken from "../contracts/EasyLinkToken.sol/EasyLinkToken.json";
-import { HarmonyMainnet, HarmonyTestnet, PolygonMumbai ,ArbitrumTestnet, ScrollTest } from "./chains";
+import { HarmonyMainnet, HarmonyTestnet, PolygonMumbai ,ArbitrumTestnet, ScrollTest, Celo } from "./chains";
 
 export const easyLink = 'easyLink';
 export const easyLinkToken = 'easyLinkToken';
@@ -38,6 +38,10 @@ export const CONTRACTS: {
       address: '0x13eD9082F9EA236C85dFc7fE555622848B5fadc5',
       deploymentBlock: 	2533659
     },
+    [Celo]: {
+      address: '0x13eD9082F9EA236C85dFc7fE555622848B5fadc5',
+      deploymentBlock: 	21347355
+    },
   },
   [easyLinkToken]: {
     [PolygonMumbai]: {
@@ -53,6 +57,9 @@ export const CONTRACTS: {
       address: '0x6ce2939eE9D508730C18Ba06deC2daE5f333c312',
     },
     [ScrollTest]: { // Wrapped UST
+      address: '0x2D4acF57d7264736eD0a04E2C964Eda695ABB36b',
+    },
+    [Celo]: { // Wrapped UST
       address: '0x2D4acF57d7264736eD0a04E2C964Eda695ABB36b',
     }
   }
