@@ -11,7 +11,7 @@ export const deployHasher = async (path: string) => {
 
   const PoseidonHasher = await ethers.getContractFactory("PoseidonHasher");
   const hasher = await PoseidonHasher.deploy();
-  console.log(hasher);
+  // console.log(hasher);
   console.log("PoseidonHasher deployed to:", hasher.address);
 
   fs.writeFileSync(path, hasher.address);

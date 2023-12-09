@@ -1,6 +1,6 @@
 import EasyLink from "../contracts/EasyLink.sol/EasyLink.json";
 import EasyLinkToken from "../contracts/EasyLinkToken.sol/EasyLinkToken.json";
-import { HarmonyMainnet, HarmonyTestnet, PolygonMumbai } from "./chains";
+import { HarmonyMainnet, HarmonyTestnet, PolygonMumbai ,ArbitrumTestnet, ScrollTest } from "./chains";
 
 export const easyLink = 'easyLink';
 export const easyLinkToken = 'easyLinkToken';
@@ -30,6 +30,14 @@ export const CONTRACTS: {
       address: '0xA713FDDAC50e63a7846134fAb3ebA290938100c2',
       deploymentBlock: 26252855
     },
+    [ArbitrumTestnet]: {
+      address: '0x791ef416D307CB3d804910617f602280730E1816',
+      deploymentBlock: 2382094
+    },
+    [ScrollTest]: {
+      address: '0x13eD9082F9EA236C85dFc7fE555622848B5fadc5',
+      deploymentBlock: 	2533659
+    },
   },
   [easyLinkToken]: {
     [PolygonMumbai]: {
@@ -40,6 +48,12 @@ export const CONTRACTS: {
     },
     [HarmonyMainnet]: { // Wrapped UST
       address: '0x224e64ec1bdce3870a6a6c777edd450454068fec',
+    },
+    [ArbitrumTestnet]: { // Wrapped UST
+      address: '0x6ce2939eE9D508730C18Ba06deC2daE5f333c312',
+    },
+    [ScrollTest]: { // Wrapped UST
+      address: '0x2D4acF57d7264736eD0a04E2C964Eda695ABB36b',
     }
   }
 }

@@ -1,6 +1,8 @@
 export const PolygonMumbai = '80001';
 export const HarmonyTestnet = '1666700000';
 export const HarmonyMainnet = '1666600000';
+export const ArbitrumTestnet = '421614';
+export const ScrollTest = '534351';
 
 export const CHAINS: {
   [key: string]: {
@@ -35,6 +37,22 @@ export const CHAINS: {
     nativeCurrency: 'ONE',
     nativeCurrencyDecimals: 18,
     testnet: false,
+  },
+  [ArbitrumTestnet]: {
+    chainName: 'Arbitrum Sepolia',
+    rpcUrl: 'https://sepolia-rollup.arbitrum.io/rpc',
+    blockExplorerUrl: 'https://sepolia.arbiscan.io/',
+    nativeCurrency: 'ETH',
+    nativeCurrencyDecimals: 18,
+    testnet: true,
+  },
+  [ScrollTest]: {
+    chainName: 'Arbitrum Sepolia',
+    rpcUrl: 'https://sepolia-rpc.scroll.io',
+    blockExplorerUrl: 'https://sepolia-blockscout.scroll.io/',
+    nativeCurrency: 'ETH',
+    nativeCurrencyDecimals: 18,
+    testnet: true,
   },
 }
 

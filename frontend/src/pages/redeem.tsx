@@ -83,6 +83,8 @@ const Redeem = () => {
       return;
     }
 
+    console.log("chainId", context.chainId);
+
     setRedeemLoading(true);
     const commitment = context.hasher.hash(BigNumber.from(nullifier), BigNumber.from(secret)).toString();
     console.log("cComm",commitment)

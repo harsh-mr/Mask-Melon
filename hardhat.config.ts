@@ -54,6 +54,10 @@ const config: HardhatUserConfig = {
     arbitrumTest: {
       url: "https://sepolia-rollup.arbitrum.io/rpc",
       accounts: [`${TESTNET_PRIVATE_KEY}`]
+    },
+    scrollTest: {
+      url: "https://scroll-testnet-public.unifra.io",
+      accounts: [`${TESTNET_PRIVATE_KEY}`]
     }
   },
   etherscan: {
