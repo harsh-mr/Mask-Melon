@@ -1,7 +1,7 @@
 import { HardhatUserConfig, subtask, task } from "hardhat/config";
-import '@typechain/hardhat'
-import '@nomiclabs/hardhat-ethers'
-import '@nomiclabs/hardhat-waffle'
+import "@typechain/hardhat";
+import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
 import "hardhat-circom";
 import * as path from "path";
@@ -28,65 +28,76 @@ const config: HardhatUserConfig = {
     inputBasePath: "./circuits",
     outputBasePath: "./artifacts/circuits",
     ptau: "pot12_final.ptau",
-    circuits: [{
-      name: "withdraw",
-      input: "input.json",
-      version: 2,
-    }],
+    circuits: [
+      {
+        name: "withdraw",
+        input: "input.json",
+        version: 2,
+      },
+    ],
   },
   typechain: {
     outDir: "artifacts/contracts/types",
-    target: "ethers-v5"
+    target: "ethers-v5",
   },
   networks: {
     polygonMumbai: {
       url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      accounts: [`${TESTNET_PRIVATE_KEY}`]
+      accounts: [`${TESTNET_PRIVATE_KEY}`],
     },
     harmonyTest: {
       url: "https://api.s0.b.hmny.io",
-      accounts: [`${TESTNET_PRIVATE_KEY}`]
+      accounts: [`${TESTNET_PRIVATE_KEY}`],
     },
     harmony: {
       url: "https://api.harmony.one",
-      accounts: [`${MAINNET_PRIVATE_KEY}`]
-    }
+      accounts: [`${MAINNET_PRIVATE_KEY}`],
+    },
   },
   etherscan: {
     apiKey: {
       polygonMumbai: `${POLYGON_SCAN_API_KEY}`,
       harmonyTest: "harmonyTest",
       harmony: "harmony",
-    }
-  }
-}
+    },
+  },
+};
 
 export default config;
 
 type ZKeys = {
   zkeys: ZkeyFastFile[];
-}
+};
 
-subtask(TASK_CIRCOM_TEMPLATE, "generate Verifier template shipped by SnarkJS")
-  .setAction(async ({ zkeys }: ZKeys, hre: HardhatRuntimeEnvironment) => {
+subtask(
+  TASK_CIRCOM_TEMPLATE,
+  "generate Verifier template shipped by SnarkJS"
+).setAction(async ({ zkeys }: ZKeys, hre: HardhatRuntimeEnvironment) => {
+  const groth16Template = fs.readFileSync(
+    path.resolve("./circuits/template/verifier_groth16.sol.ejs"),
+    "utf8"
+  );
 
-    const groth16Template = fs.readFileSync(path.resolve("./circuits/template/verifier_groth16.sol.ejs"), "utf8");
+  let combinedVerifier = "";
+  for (const zkey of zkeys) {
+    const verifierSol = await hre.snarkjs.zKey.exportSolidityVerifier(zkey, {
+      groth16: groth16Template,
+      plonk: "",
+    });
+    combinedVerifier += verifierSol;
+  }
 
-    let combinedVerifier = "";
-    for (const zkey of zkeys) {
-      const verifierSol = await hre.snarkjs.zKey.exportSolidityVerifier(zkey, {
-        groth16: groth16Template,
-        plonk: "",
-      });
-      combinedVerifier += verifierSol;
-    }
+  fs.writeFileSync("./artifacts/circuits/Verifier.sol", combinedVerifier);
+});
 
-    fs.writeFileSync("./artifacts/circuits/Verifier.sol", combinedVerifier);
-  });
-
-subtask(TASK_COMPILE_HASHER)
-  .setAction(async (hre: HardhatRuntimeEnvironment) => {
-    const outputPath = path.join(__dirname, "artifacts", "contracts", "PoseidonHasher.sol");
+subtask(TASK_COMPILE_HASHER).setAction(
+  async (hre: HardhatRuntimeEnvironment) => {
+    const outputPath = path.join(
+      __dirname,
+      "artifacts",
+      "contracts",
+      "PoseidonHasher.sol"
+    );
     const outputFile = path.join(outputPath, "PoseidonHasher.json");
 
     if (!fs.existsSync(outputPath)) {
@@ -102,13 +113,16 @@ subtask(TASK_COMPILE_HASHER)
       deployedBytecode: "",
       linkReferences: {},
       deployedLinkReferences: {},
-    }
+    };
 
     fs.writeFileSync(outputFile, JSON.stringify(contract, null, 2));
-  });
+  }
+);
 
-task(TASK_COMPILE, "Compiles the entire project, building all artifacts")
-  .setAction(async (taskArguments, hre, runSuper) => {
-    await runSuper(taskArguments);
-    await hre.run(TASK_COMPILE_HASHER);
-  });
+task(
+  TASK_COMPILE,
+  "Compiles the entire project, building all artifacts"
+).setAction(async (taskArguments, hre, runSuper) => {
+  await runSuper(taskArguments);
+  await hre.run(TASK_COMPILE_HASHER);
+});

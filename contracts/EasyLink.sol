@@ -35,7 +35,7 @@ contract EasyLink is MerkleTree {
 
         IERC20(token).transferFrom(msg.sender, address(this), amount);
 
-        uint32 index = insert(commitment);
+        uint32 index = insert(commitment); // inserts commitment into the merkle tree
         commitments[commitment] = true;
 
         emit Deposit(commitment, index);
