@@ -5,10 +5,10 @@ const mainColor = 'green';
 
 const Button: ComponentStyleConfig = {
   baseStyle: {
-    fontWeight: 'bold',
+    fontWeight: 'semibold',
     textTransform: 'uppercase',
     borderRadius: 'base',
-    width: '12rem'
+
   },
   variants: {
     outline: {
