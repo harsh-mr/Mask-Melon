@@ -50,6 +50,18 @@ const config: HardhatUserConfig = {
     harmony: {
       url: "https://api.harmony.one",
       accounts: [`${MAINNET_PRIVATE_KEY}`]
+    },
+    arbitrumTest: {
+      url: "https://sepolia-rollup.arbitrum.io/rpc",
+      accounts: [`${TESTNET_PRIVATE_KEY}`]
+    },
+    scrollTest: {
+      url: "https://scroll-testnet-public.unifra.io",
+      accounts: [`${TESTNET_PRIVATE_KEY}`]
+    },
+    celoTest: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: [`${TESTNET_PRIVATE_KEY}`]
     }
   },
   etherscan: {
