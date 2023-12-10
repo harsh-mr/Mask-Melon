@@ -50,7 +50,15 @@ contract EasyLink is MerkleTree {
     ) external {
         require(!spentNullifiers[nullifierHash], "Nullifier already spent");
         require(isValidRoot(merkleRoot), "Root is not valid");
-        // require(Verifier(verifier).verifyProof(a, b, c, [nullifierHash, uint256(uint160(recipient)), merkleRoot]), "Proof is not valid");
+        require(
+            Verifier(verifier).verifyProof(
+                a,
+                b,
+                c,
+                [nullifierHash, uint256(uint160(recipient)), merkleRoot]
+            ),
+            "Proof is not valid"
+        );
 
         spentNullifiers[nullifierHash] = true;
 
