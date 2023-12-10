@@ -102,7 +102,7 @@ const Header = () => {
           {
             isTestnet(chainId) &&
             <Center w={'13rem'}>
-              <Button isLoading={mintLoading} onClick={getTestTokens}>Get test ELT</Button>
+              <Button isLoading={mintLoading} onClick={getTestTokens}>Get test MELONS</Button>
             </Center>
           }
           <Select<NetworkOption, false, GroupBase<NetworkOption>>
