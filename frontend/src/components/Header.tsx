@@ -121,8 +121,9 @@ const Header = () => {
       >
         <Center>
           <Link onClick={() => router.push("/")}>
-            <Text fontSize="2xl" sx={{ color: "white" }}>
-              Masked-Melon
+            
+            <Text fontSize="2xl" fontWeight={{bold:1000}} sx={{ color: "white" }}>
+            Masked Melon 🍉
             </Text>
           </Link>
         </Center>

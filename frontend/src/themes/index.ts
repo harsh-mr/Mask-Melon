@@ -1,7 +1,7 @@
 import { ComponentStyleConfig, extendTheme } from '@chakra-ui/react'
 
 const backgroundColor = 'gray';
-const mainColor = 'green';
+const mainColor = 'pink';
 
 const Button: ComponentStyleConfig = {
   baseStyle: {

@@ -5,7 +5,7 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <Header />
-      <main style={{ backgroundColor: "#150633" }}>{children}</main>
+      <main style={{ height:"100vh" ,backgroundColor: "#150633" }}>{children}</main>
     </>
   );
 };

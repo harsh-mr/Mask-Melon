@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Box, Button, Center, Heading, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Button, Center, Heading, Wrap, WrapItem , Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
@@ -7,16 +7,19 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Center>
-        <Box textAlign="center" color="white">
+      {/* <Center> */}
+        <Box paddingTop={300} height="50%" textAlign="center" color="white">
+          {/* <Heading fontSize="50px" lineHeight="1.2">
+          Just whip up a payment link and voila! 
+            </Heading>
           <Heading fontSize="50px" lineHeight="1.2">
-            Rescue Your Ethereum Tokens & NFTs
-          </Heading>
-          <Heading fontSize="50px" lineHeight="1.2">
-            From Compromised Accounts
-          </Heading>
+          Your on-chain history stays under wraps          
+          </Heading> */}
+
+    <Text fontSize='6xl'>The convert superhero of payment protocols! </Text>
+    <Text fontSize='6xl' color="#EF14A9">Your on-chain history stays under wraps   </Text>
         </Box>
-      </Center>
+      {/* </Center> */}
 
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Wrap>
