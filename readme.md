@@ -1,44 +1,32 @@
-# Easy private payments protocol
+# Masked-Melon
 
-This payment protocol is focusing on hiding the recipient's address and, as result, hiding all financial history from the sender.
+**The covert superhero of payment protocols**
 
-## Build the project
+**Masked-Melon** serves as a confidential payments protocol enabling you to receive funds without disclosing your cryptocurrency wallet address. When someone wishes to make a payment, you can generate a unique payment link that conceals your wallet address, safeguarding your on-chain history privacy. The sender remains unaware of your financial details and the amusing NFTs you may possess.
 
-```
-yarn
-yarn run circuit:build
-yarn run build
-```
+**CONTRACT ADDRESSES**
 
-## Run smart contract tests
+TOKEN CONTRACT
 
-```
-yarn run test
-```
+1. Arbitrum: 
+2. Scroll: 0x2D4acF57d7264736eD0a04E2C964Eda695ABB36b
+3. Celo: 0x2D4acF57d7264736eD0a04E2C964Eda695ABB36b
+4. Polygon:
 
-## Build frontend
+VERIFIER CONTRACT
+1. Arbitrum: 
+2. Scroll: 0x6ce2939eE9D508730C18Ba06deC2daE5f333c312
+3. Celo: 0x6ce2939eE9D508730C18Ba06deC2daE5f333c312
+4. Polygon:
 
-```
-cd frontend && yarn
-rm -rf ./src/contracts && cp -r ../artifacts/contracts ./src
-```
+POSEIDON HASHER CONTRACT
+1. Arbitrum: 
+2. Scroll: 0x3082dE1Cefa142e6a995bFcf09bA9AA83C4e05B4
+3. Celo: 0x3082dE1Cefa142e6a995bFcf09bA9AA83C4e05B4
+4. Polygon:
 
-## Start app locally
-
-Start local blockchain:
-
-```
-npx hardhat node
-```
-
-Deploy smart contracts
-
-```
-npx hardhat run scripts/deploy.ts --network localhost
-```
-
-Start local frontend
-
-```
-cd frontend && yarn dev
-```
+EASYLINK CONTRACT
+1. Arbitrum: 
+2. Scroll: 0x13eD9082F9EA236C85dFc7fE555622848B5fadc5
+3. Celo:  0x13eD9082F9EA236C85dFc7fE555622848B5fadc5
+4. Polygon:
