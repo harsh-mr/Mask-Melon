@@ -36,4 +36,4 @@ SCROLL CONTRACT VERIFICATION LINK: https://sepolia.scrollscan.dev/address/0x13eD
 
 ARBITRUM CONTRACT VERIFICATION LINK: https://sepolia.arbiscan.io/address/0x306a37a217ded05e20a9de37925f289d90ca93e3
 
-CELO CONTRACT VERIFICATION LINK : https://alfajores.celoscan.io/address/0xD220E708a12E6162C9c3D3d360233E1296613FfF#code
+CELO CONTRACT VERIFICATION LINK : https://alfajores.celoscan.io/verifyContract-solc?a=0x13ed9082f9ea236c85dfc7fe555622848b5fadc5&c=v0.8.13%2bcommit.abaa5c0e&lictype=3
